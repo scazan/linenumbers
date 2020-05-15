@@ -2,7 +2,7 @@
 .App {
   display: grid;
   grid-template-columns: 50vw 50vw;
-  height: 94vh;
+  min-height: 94vh;
   overflow: scroll;
 }
 
@@ -42,14 +42,14 @@ textarea {
   box-sizing: border-box;
   padding: 25px;
   width: 50vw;
-  height: 93.25vh;
+  min-height: 93.25vh;
   box-sizing: border-box;
 }
 
 .content {
   background-color: #f8f8f8;
   width: 48vw;
-  height: 93.25vh;
+  min-height: 93.25vh;
   padding: 25px;
   border-left: 1px solid #ccc;
   box-sizing: border-box;
