@@ -2,6 +2,8 @@
 .App {
   display: grid;
   grid-template-columns: 50vw 50vw;
+  height: 94vh;
+  overflow: scroll;
 }
 
 
@@ -18,6 +20,8 @@ textarea, .content, .toolbar {
   display: flex;
   justify-content: right;
   font-size: 16px;
+  height: 1.75vw;
+
   color: #ccc;
   padding: 0.5vw;
   cursor: cell;
@@ -38,15 +42,17 @@ textarea {
   box-sizing: border-box;
   padding: 25px;
   width: 50vw;
-  height: 100vh;
+  height: 93.25vh;
+  box-sizing: border-box;
 }
 
 .content {
   background-color: #f8f8f8;
-  width: 50vw;
-  height: 100vh;
+  width: 48vw;
+  height: 93.25vh;
   padding: 25px;
   border-left: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .content .beat {
@@ -57,9 +63,6 @@ textarea {
   top: -17px;
   position: relative;
   color: #ccc;
-}
-.content .beatNum:first-child {
-  display: none;
 }
 
 .App.noBeatsVisible .content .beatNum {
