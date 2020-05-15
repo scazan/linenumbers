@@ -13,10 +13,26 @@ const getBeats = (line) => {
   return beatsHtml.join('') + '<br/>';
 };
 
+
 function App() {
   const textArea = useRef(null);
   const [content, setContent] = useState("");
   const [beatsVisible, setBeatsVisible] = useState(true);
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    const contentWithNumbers = document.querySelector('.content').innerText;
+
+    const textArea = document.createElement('textarea');
+    textArea.value = contentWithNumbers;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const process = () => {
     const value = textArea.current.value;
@@ -54,6 +70,10 @@ function App() {
     <div className="toolbar">
       <div className="beatsVisible" onClick={toggleBeatsVisible}>
         {beatsVisible ? 'click to remove numbers' : 'click to add numbers'}
+      </div>
+
+      <div className="copy" onClick={copyToClipboard}>
+         {copied ? 'copied!': 'copy to clipboard'}
       </div>
     </div>
       <div className={`App ${beatsVisible ? '' : 'noBeatsVisible'}`}>
