@@ -4,10 +4,26 @@
   grid-template-columns: 50vw 50vw;
 }
 
-textarea, .content {
+
+
+textarea, .content, .toolbar {
   font-family: 'Jaldi', serif;
   font-size: 24px;
   line-height: 1.3em;
+
+  border: none;
+}
+
+.toolbar {
+  font-size: 16px;
+  color: #ccc;
+  padding: 0.5vw;
+  cursor: cell;
+  user-select: none;
+}
+
+.lineNumber {
+  color: #ccc;
 }
 
 textarea {
@@ -18,10 +34,11 @@ textarea {
 }
 
 .content {
-  background-color: #f3f3f3;
+  background-color: #f8f8f8;
   width: 50vw;
   height: 100vh;
   padding: 25px;
+  border-left: 1px solid #ccc;
 }
 
 .content .beat {
@@ -34,5 +51,9 @@ textarea {
   color: #ccc;
 }
 .content .beatNum:first-child {
+  display: none;
+}
+
+.App.noBeatsVisible .content .beatNum {
   display: none;
 }

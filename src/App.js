@@ -16,6 +16,7 @@ const getBeats = (line) => {
 function App() {
   const textArea = useRef(null);
   const [content, setContent] = useState("");
+  const [beatsVisible, setBeatsVisible] = useState(true);
 
   const process = () => {
     const value = textArea.current.value;
@@ -46,8 +47,16 @@ function App() {
     }
   });
 
+  const toggleBeatsVisible = () => setBeatsVisible(!beatsVisible);
+
   return (
-    <div className="App">
+    <>
+    <div className="toolbar">
+      <div className="beatsVisible" onClick={toggleBeatsVisible}>
+        {beatsVisible ? 'click to remove numbers' : 'click to add numbers'}
+      </div>
+    </div>
+      <div className={`App ${beatsVisible ? '' : 'noBeatsVisible'}`}>
       <textarea
         ref={textArea}
         placeholder="add lines here. on paragraph breaks, count resets. if you type a dash, it will also count it as a syllable to right"
@@ -60,6 +69,7 @@ function App() {
       >
       </div>
     </div>
+    </>
   );
 }
 
