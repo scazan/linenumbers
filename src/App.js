@@ -8,7 +8,7 @@ const getBeats = (line) => {
 
   const beats = line.split(/\s|-/);
 
-  const beatsHtml = beats.map((beat,i) => `<span class="beatNum">${i > 0 ? i : ''}</span><span class="beat">${beat}</span>`);
+  const beatsHtml = beats.map((beat,i) => `<span class="beatNum">${i > 0 ? i : ''}</span><span class="beat">${beat}&nbsp</span>`);
 
   return beatsHtml.join('') + '<br/>';
 };
@@ -26,7 +26,7 @@ function App() {
     let k = 1;
     lines.map((line,i) => {
       if (line.length > 0) {
-        lines[i] = `${k} ${line}`;
+        lines[i] = `${k}&nbsp${line}`;
         k++;
       }
       else {
